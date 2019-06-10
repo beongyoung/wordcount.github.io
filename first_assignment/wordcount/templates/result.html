@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+<body>
+    {% block contents %}
+    <div class="container">
+        <div class="alert alert-primary" role="alert">
+            당신이 입력한 텍스트는 {{total}}개의 단어로 구성되어 있습니다.
+        </div>
+        <br>
+
+    <div class="card bg-light mb-3" style="max-width: 70rem;">
+        <div class="card-header"><h5>입력한 텍스트</h5></div>
+        <div class="card-body">
+            <p class="card-text"> {{full}} </p>
+        </div>
+    </div>
+
+    <div class="card bg-light mb-3" style="max-width: 70rem;">
+        <div class="card-header"><h5>단어 카운트</h5></div>
+        <div class="card-body">
+            <p class="card-text">
+                {% for word, howmany in dictionary%}
+                {{word}} : {{howmany}}번
+                <br>
+        {%endfor%}
+
+            </p>
+        </div>
+    </div>
+    <a href = "{% url 'home' %}"> <i class="fas fa-angle-double-left"></i> Again!! </a>
+    </div>
+    {% endblock %}
+</body>
